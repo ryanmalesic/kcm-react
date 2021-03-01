@@ -1,0 +1,10 @@
+name: kcm-react
+component: website
+
+inputs:
+  domain: ${stage}.karnscategorymanager.com
+  src:
+    src: ./src
+    hook: npm run build:${env:STAGE}
+    dist: ./build
+
