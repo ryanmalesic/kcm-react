@@ -24,7 +24,7 @@ const MissingItems: React.FC = () => {
 
   return (
     <>
-      <PageTitle title="Missing Items" subtitle={<>Find items missing from categories</>} />
+      <PageTitle title="Missing Items" subtitle="Find items missing from categories" />
       <main className="grid grid-cols-4 gap-6">
         <div className="col-span-4 lg:col-span-3 space-y-6">
           <ScanItemCard count={items.length} status={itemsStatus} onAddItem={handleAddItem} />
@@ -34,9 +34,7 @@ const MissingItems: React.FC = () => {
         </div>
 
         <div className="col-span-4 lg:col-span-1">
-          <div className="bg-white border border-gray-200 rounded-md shadow-sm">
-            <ItemCard item={items[items.length - 1]} title="Last scanned item" />
-          </div>
+          <ItemCard item={items[items.length - 1]} title="Last scanned item" />
         </div>
       </main>
     </>

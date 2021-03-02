@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Upload from './pages/Upload';
 import CategoryViewDemo from './pages/CategoryViewDemo';
 import MissingItems from './pages/MissingItems';
+import CategoryCreate from './pages/CategoryCreate';
 
 const App: React.FC = () => (
   <Router>
@@ -18,6 +19,9 @@ const App: React.FC = () => (
             </Route>
             <Route exact path="/categories/demo">
               <CategoryViewDemo />
+            </Route>
+            <Route exact path="/categories/create">
+              <CategoryCreate />
             </Route>
             <Route exact path="/missing-items">
               <MissingItems />

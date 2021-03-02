@@ -24,6 +24,12 @@ const Navbar: React.FC = () => {
           >
             Missing Items
           </Link>
+          <Link
+            className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            to="/categories/create"
+          >
+            Categories
+          </Link>
         </div>
       </div>
 
