@@ -1,40 +1,40 @@
-import React from 'react';
+import React from "react";
 
-import itemsApi from '../api/items';
-import { ClassDescItems, Item } from '../types/item';
+import itemsApi from "../api/items";
+import { ClassDescItems, Item } from "../types/item";
 
 type State = {
   error: string;
-  status: 'pending' | 'loading' | 'failure' | 'success';
+  status: "pending" | "loading" | "failure" | "success";
   items: Item[];
 };
 
 const initialState: State = {
-  error: '',
-  status: 'pending',
+  error: "",
+  status: "pending",
   items: [],
 };
 
 type Action =
-  | { type: 'FETCH_LOADING' }
-  | { type: 'FETCH_FAILURE'; payload: string }
-  | { type: 'FETCH_SUCCESS'; payload: Item[] };
+  | { type: "FETCH_LOADING" }
+  | { type: "FETCH_FAILURE"; payload: string }
+  | { type: "FETCH_SUCCESS"; payload: Item[] };
 
 function reducer(state: State, action: Action): State {
   switch (action.type) {
-    case 'FETCH_LOADING':
-      return { ...state, error: '', status: 'loading' };
-    case 'FETCH_FAILURE':
+    case "FETCH_LOADING":
+      return { ...state, error: "", status: "loading" };
+    case "FETCH_FAILURE":
       return {
         ...state,
         ...initialState,
         error: action.payload,
-        status: 'failure',
+        status: "failure",
       };
-    case 'FETCH_SUCCESS':
+    case "FETCH_SUCCESS":
       return {
         ...state,
-        status: 'success',
+        status: "success",
         items: action.payload,
       };
     default:
@@ -47,7 +47,11 @@ interface UseMissingItemProps {
   items: Item[];
 }
 
-export default function useMissingItems(props: UseMissingItemProps) {
+type UseMissingItems = State;
+
+export default function useMissingItems(
+  props: UseMissingItemProps
+): UseMissingItems {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   const cache = React.useRef<ClassDescItems>({});
 
@@ -57,9 +61,11 @@ export default function useMissingItems(props: UseMissingItemProps) {
         return;
       }
 
-      dispatch({ type: 'FETCH_LOADING' });
+      dispatch({ type: "FETCH_LOADING" });
 
-      const classDescs = [...new Set(props.items.map((item) => item.classDesc))];
+      const classDescs = [
+        ...new Set(props.items.map((item) => item.classDesc)),
+      ];
       const items: Item[] = [];
 
       const results: Promise<Item[]>[] = [];
@@ -72,14 +78,14 @@ export default function useMissingItems(props: UseMissingItemProps) {
 
         results.push(
           itemsApi.list({
-            bookId: props.bookId ?? '',
+            bookId: props.bookId ?? "",
             classDesc,
           })
         );
       });
 
       const allFetchedItems = await Promise.all(results).catch((error) => {
-        dispatch({ type: 'FETCH_FAILURE', payload: error });
+        dispatch({ type: "FETCH_FAILURE", payload: error });
         return [];
       });
 
@@ -96,7 +102,7 @@ export default function useMissingItems(props: UseMissingItemProps) {
         (item) => !props.items.some((propItem) => propItem.id === item.id)
       );
 
-      dispatch({ type: 'FETCH_SUCCESS', payload: missingItems });
+      dispatch({ type: "FETCH_SUCCESS", payload: missingItems });
     }
 
     if (props.bookId && props.items.length > 0) {

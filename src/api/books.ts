@@ -1,9 +1,9 @@
-import { Book } from '../types/book';
+import { Book } from "../types/book";
 
 export type GetParams = {
   limit: number;
   runDate: string;
-  sort: 'asc' | 'desc';
+  sort: "asc" | "desc";
 };
 
 const createGetUrl = (params: GetParams) => {
@@ -26,7 +26,7 @@ async function list(params: GetParams): Promise<Book[]> {
   return response.json();
 }
 
-async function upload(files: File[]) {
+async function upload(files: File[]): Promise<void> {
   const results = await Promise.all(
     files.map((file) => {
       const url = `${process.env.REACT_APP_API_URL}/presigned?fileName=${file.name}`;
@@ -37,7 +37,9 @@ async function upload(files: File[]) {
   const jsons = await Promise.all(results.map((result) => result.json()));
 
   await Promise.all(
-    jsons.map(({ url }, index) => fetch(url, { method: 'PUT', body: files[index] }))
+    jsons.map(({ url }, index) =>
+      fetch(url, { method: "PUT", body: files[index] })
+    )
   );
 }
 

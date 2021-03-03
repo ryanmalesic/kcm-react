@@ -1,10 +1,20 @@
 {
-  "extends": ["airbnb-typescript", "prettier"],
-  "parserOptions":{
-    "project":"./tsconfig.json"
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
   },
-  "plugins": ["prettier"],
+  "plugins": ["@typescript-eslint", "react-hooks"],
+  "extends": ["plugin:react/recommended", "plugin:@typescript-eslint/recommended"],
   "rules": {
-    "prettier/prettier": ["error"]
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": "off"
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
   }
 }

@@ -1,22 +1,22 @@
-import React from 'react';
+import React from "react";
 
-import Card from './Card';
-import CardBody from './CardBody';
-import CardHeader from './CardHeader';
-import DownloadItem from './DownloadItem';
-import { Item } from '../types/item';
+import Card from "./Card";
+import CardBody from "./CardBody";
+import CardHeader from "./CardHeader";
+import DownloadItem from "./DownloadItem";
+import { Item } from "../types/item";
 import {
   downloadHeaders,
   toClassDescItems,
   toFileSafeName,
   toSubClassDescriptionItems,
-} from '../utils/item';
-import useCsv from '../hooks/useCsv';
-import Download from './Download';
+} from "../utils/item";
+import useCsv from "../hooks/useCsv";
+import Download from "./Download";
 
 interface DownloadMissingItemsCardProps {
   items: Item[];
-  status: 'pending' | 'loading' | 'failure' | 'success';
+  status: "pending" | "loading" | "failure" | "success";
 }
 
 const DownloadMissingItemsCard: React.FC<DownloadMissingItemsCardProps> = (
@@ -26,31 +26,45 @@ const DownloadMissingItemsCard: React.FC<DownloadMissingItemsCardProps> = (
 
   const { download } = useCsv();
 
-  const handleDownloadClick = (data: any[], name: string) => () => {
+  const handleDownloadClick = (
+    data: Record<string, unknown>[],
+    name: string
+  ) => () => {
     download(data, downloadHeaders, name);
   };
 
   const classDescItems = toClassDescItems(items);
   const subClassDescriptionItems = toSubClassDescriptionItems(items);
 
-  const fileName = (name: string) => `missing-items-${toFileSafeName(name)}.csv`;
+  const fileName = (name: string) =>
+    `missing-items-${toFileSafeName(name)}.csv`;
 
   return (
     <Card>
-      <CardHeader title="Missing Items" subtitle="Download the missing items." />
+      <CardHeader
+        title="Missing Items"
+        subtitle="Download the missing items."
+      />
       <CardBody>
-        {(status === 'loading' || status === 'failure') && (
+        {(status === "loading" || status === "failure") && (
           <div className="flex items-center justify-center w-full h-full">
             <span className="text-sm text-gray-600">
-              {status === 'loading' ? 'Loading...' : 'Loading missing items failed.'}
+              {status === "loading"
+                ? "Loading..."
+                : "Loading missing items failed."}
             </span>
           </div>
         )}
 
-        {status === 'success' && (
+        {status === "success" && (
           <div className="space-y-6">
             <Download title="Missing items from all scanned class descriptions.">
-              <DownloadItem onDownloadClick={handleDownloadClick(items, 'missing-items.csv')}>
+              <DownloadItem
+                onDownloadClick={handleDownloadClick(
+                  items,
+                  "missing-items.csv"
+                )}
+              >
                 missing-items.csv
               </DownloadItem>
             </Download>
@@ -70,17 +84,19 @@ const DownloadMissingItemsCard: React.FC<DownloadMissingItemsCardProps> = (
             </Download>
 
             <Download title="Missing items from specific subclass descriptions.">
-              {Object.keys(subClassDescriptionItems).map((subClassDescription) => (
-                <DownloadItem
-                  key={subClassDescription}
-                  onDownloadClick={handleDownloadClick(
-                    subClassDescriptionItems[subClassDescription],
-                    fileName(subClassDescription)
-                  )}
-                >
-                  {fileName(subClassDescription)}
-                </DownloadItem>
-              ))}
+              {Object.keys(subClassDescriptionItems).map(
+                (subClassDescription) => (
+                  <DownloadItem
+                    key={subClassDescription}
+                    onDownloadClick={handleDownloadClick(
+                      subClassDescriptionItems[subClassDescription],
+                      fileName(subClassDescription)
+                    )}
+                  >
+                    {fileName(subClassDescription)}
+                  </DownloadItem>
+                )
+              )}
             </Download>
           </div>
         )}
