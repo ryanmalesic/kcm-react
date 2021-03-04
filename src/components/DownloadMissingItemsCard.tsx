@@ -1,22 +1,22 @@
-import React from "react";
+import React from 'react';
 
-import Card from "./Card";
-import CardBody from "./CardBody";
-import CardHeader from "./CardHeader";
-import DownloadItem from "./DownloadItem";
-import { Item } from "../types/item";
+import Card from './Card';
+import CardBody from './CardBody';
+import CardHeader from './CardHeader';
+import DownloadItem from './DownloadItem';
+import { Item } from '../types/item';
 import {
   downloadHeaders,
   toClassDescItems,
   toFileSafeName,
   toSubClassDescriptionItems,
-} from "../utils/item";
-import useCsv from "../hooks/useCsv";
-import Download from "./Download";
+} from '../utils/item';
+import useCsv from '../hooks/useCsv';
+import Download from './Download';
 
 interface DownloadMissingItemsCardProps {
   items: Item[];
-  status: "pending" | "loading" | "failure" | "success";
+  status: 'pending' | 'loading' | 'failure' | 'success';
 }
 
 const DownloadMissingItemsCard: React.FC<DownloadMissingItemsCardProps> = (
@@ -46,23 +46,23 @@ const DownloadMissingItemsCard: React.FC<DownloadMissingItemsCardProps> = (
         subtitle="Download the missing items."
       />
       <CardBody>
-        {(status === "loading" || status === "failure") && (
+        {(status === 'loading' || status === 'failure') && (
           <div className="flex items-center justify-center w-full h-full">
             <span className="text-sm text-gray-600">
-              {status === "loading"
-                ? "Loading..."
-                : "Loading missing items failed."}
+              {status === 'loading'
+                ? 'Loading...'
+                : 'Loading missing items failed.'}
             </span>
           </div>
         )}
 
-        {status === "success" && (
+        {status === 'success' && (
           <div className="space-y-6">
             <Download title="Missing items from all scanned class descriptions.">
               <DownloadItem
                 onDownloadClick={handleDownloadClick(
                   items,
-                  "missing-items.csv"
+                  'missing-items.csv'
                 )}
               >
                 missing-items.csv

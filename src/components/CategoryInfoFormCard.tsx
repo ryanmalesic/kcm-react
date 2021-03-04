@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import { CategoryDetails } from "../types/category";
+import { CategoryDetails } from '../types/category';
 
-import Card from "./Card";
-import CardBody from "./CardBody";
-import CardHeader from "./CardHeader";
+import Card from './Card';
+import CardBody from './CardBody';
+import CardHeader from './CardHeader';
 
 interface CategoryInfoFormCardProps {
   categoryDetails: CategoryDetails;
@@ -25,7 +25,7 @@ const CategoryInfoFormCard: React.FC<CategoryInfoFormCardProps> = (
         subtitle="Information about the category."
       />
       <CardBody>
-        <form className="grid overflow-hidden grid-cols-1 sm:grid-cols-2 gap-8">
+        <form className="overflow-hidden grid grid-cols-1 sm:grid-cols-2 gap-8">
           <label className="text-sm text-gray-600" htmlFor="name">
             Name
             <input
@@ -34,7 +34,7 @@ const CategoryInfoFormCard: React.FC<CategoryInfoFormCardProps> = (
               placeholder="Canned Dog Food"
               type="text"
               value={categoryDetails.name}
-              onChange={onCategoryDetailsChange("name")}
+              onChange={onCategoryDetailsChange('name')}
             />
           </label>
 
@@ -42,7 +42,7 @@ const CategoryInfoFormCard: React.FC<CategoryInfoFormCardProps> = (
 
           <div>
             <h3 className="text-sm text-gray-600">Store</h3>
-            <select className="font-sans text-sm text-gray-900 border-0 border-b border-gray-300 w-16 px-0 focus:ring-0 focus:border-karns-blue">
+            <select className="w-16 px-0 font-sans text-sm text-gray-900 border-0 border-b border-gray-300 focus:ring-0 focus:border-karns-blue">
               <option value=""></option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -64,7 +64,7 @@ const CategoryInfoFormCard: React.FC<CategoryInfoFormCardProps> = (
               placeholder="13B"
               type="text"
               value={categoryDetails.aisle}
-              onChange={onCategoryDetailsChange("aisle")}
+              onChange={onCategoryDetailsChange('aisle')}
             />
           </label>
 
@@ -76,7 +76,7 @@ const CategoryInfoFormCard: React.FC<CategoryInfoFormCardProps> = (
               placeholder="24"
               type="text"
               value={categoryDetails.length}
-              onChange={onCategoryDetailsChange("length")}
+              onChange={onCategoryDetailsChange('length')}
             />
           </label>
 
@@ -88,7 +88,7 @@ const CategoryInfoFormCard: React.FC<CategoryInfoFormCardProps> = (
               placeholder="2' x 4'"
               type="text"
               value={categoryDetails.shelfDimensions}
-              onChange={onCategoryDetailsChange("shelfDimensions")}
+              onChange={onCategoryDetailsChange('shelfDimensions')}
             />
           </label>
         </form>

@@ -5,7 +5,9 @@ interface GridLabelItemProps {
   title: string;
 }
 
-const GridLabelItem: React.FC<GridLabelItemProps> = (props: GridLabelItemProps) => {
+const GridLabelItem: React.FC<GridLabelItemProps> = (
+  props: GridLabelItemProps
+) => {
   const { body, title } = props;
 
   return (

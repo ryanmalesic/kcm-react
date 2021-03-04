@@ -12,7 +12,9 @@ const PageTitle: React.FC<PageTitleProps> = (props: PageTitleProps) => {
   return (
     <div className="flex items-center justify-between">
       <div>
-        <h1 className="text-xl font-semibold leading-none text-gray-900">{title}</h1>
+        <h1 className="text-xl font-semibold leading-none text-gray-900">
+          {title}
+        </h1>
         <span className="text-sm text-gray-600">{subtitle}</span>
       </div>
 

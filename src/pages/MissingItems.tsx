@@ -24,12 +24,22 @@ const MissingItems: React.FC = () => {
 
   return (
     <>
-      <PageTitle title="Missing Items" subtitle="Find items missing from categories" />
+      <PageTitle
+        title="Missing Items"
+        subtitle="Find items missing from categories"
+      />
       <main className="grid grid-cols-4 gap-6">
         <div className="col-span-4 lg:col-span-3 space-y-6">
-          <ScanItemCard count={items.length} status={itemsStatus} onAddItem={handleAddItem} />
+          <ScanItemCard
+            count={items.length}
+            status={itemsStatus}
+            onAddItem={handleAddItem}
+          />
           {!(missingItemsStatus === 'pending') && (
-            <DownloadMissingItemsCard items={missingItems} status={missingItemsStatus} />
+            <DownloadMissingItemsCard
+              items={missingItems}
+              status={missingItemsStatus}
+            />
           )}
         </div>
 

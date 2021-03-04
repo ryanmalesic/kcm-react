@@ -32,7 +32,9 @@ const BookCard: React.FC<BookCardProps> = (props: BookCardProps) => {
           </div>
           <div className="break-words">
             <h3 className="text-sm text-gray-600">Class Descriptions</h3>
-            <span className="text-sm text-gray-900">{book.classDescs.length}</span>
+            <span className="text-sm text-gray-900">
+              {book.classDescs.length}
+            </span>
           </div>
         </div>
       </CardBody>

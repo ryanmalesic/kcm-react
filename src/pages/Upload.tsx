@@ -22,7 +22,9 @@ const Upload: React.FC = () => {
     setFiles([...files.slice(0, index), ...files.slice(index + 1)]);
   };
 
-  const handleFileChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+  const handleFileChange: React.ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
     event.preventDefault();
     setFiles(Array.from(event.target.files ?? []));
   };
@@ -44,7 +46,8 @@ const Upload: React.FC = () => {
         title="Upload Master Price Books"
         subtitle={
           <>
-            Last uploaded by <span className="font-medium text-gray-900 ">Tom Malesic</span> on
+            Last uploaded by{' '}
+            <span className="font-medium text-gray-900 ">Tom Malesic</span> on
             February 18, 2021
           </>
         }
@@ -87,7 +90,9 @@ const Upload: React.FC = () => {
                         d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    <span>Choose the master price book files from your computer</span>
+                    <span>
+                      Choose the master price book files from your computer
+                    </span>
                   </button>
                 </div>
 
@@ -116,7 +121,9 @@ const Upload: React.FC = () => {
                                   />
                                 </svg>
                               </div>
-                              <h4 className="text-sm text-gray-900">{file.name}</h4>
+                              <h4 className="text-sm text-gray-900">
+                                {file.name}
+                              </h4>
                             </div>
                             <button
                               className="px-2 py-1 text-sm hover:text-red-600 focus:outline-none"

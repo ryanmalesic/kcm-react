@@ -6,16 +6,25 @@ import logo from '../assets/logo.png';
 const Navbar: React.FC = () => {
   const location = useLocation();
 
-  const pathParts = location.pathname.split('/').filter((pathPart) => pathPart.length);
+  const pathParts = location.pathname
+    .split('/')
+    .filter((pathPart) => pathPart.length);
 
   return (
-    <nav className="bg-white border-b-2 borger-gray-200">
+    <nav className="bg-white border-b-2 border-gray-200">
       <div className="flex items-center justify-between px-4 py-2 mx-6 border-b border-gray-200">
         <div className="flex items-center space-x-8">
           <Link to="/">
-            <img className="h-8" src={logo} alt="Karns Prime &amp; Fancy Foods logo" />
+            <img
+              className="h-8"
+              src={logo}
+              alt="Karns Prime &amp; Fancy Foods logo"
+            />
           </Link>
-          <Link className="text-sm font-medium text-gray-700 hover:text-gray-900" to="/upload">
+          <Link
+            className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            to="/upload"
+          >
             Upload
           </Link>
           <Link
@@ -34,7 +43,10 @@ const Navbar: React.FC = () => {
       </div>
 
       <div className="flex items-center py-2 mx-6 space-x-4">
-        <Link className="text-gray-400 focus:outline-none hover:text-gray-900" to="/">
+        <Link
+          className="text-gray-400 focus:outline-none hover:text-gray-900"
+          to="/"
+        >
           <svg
             className="w-4 h-4"
             xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +57,9 @@ const Navbar: React.FC = () => {
           </svg>
         </Link>
 
-        {pathParts.length === 0 && <span className="text-sm text-gray-400">/</span>}
+        {pathParts.length === 0 && (
+          <span className="text-sm text-gray-400">/</span>
+        )}
 
         {pathParts.map((pathPart, index, array) => (
           <div className="space-x-4" key={pathPart}>

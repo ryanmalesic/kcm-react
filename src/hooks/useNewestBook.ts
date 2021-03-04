@@ -1,39 +1,39 @@
-import React from "react";
-import booksApi from "../api/books";
-import { Book } from "../types/book";
+import React from 'react';
+import booksApi from '../api/books';
+import { Book } from '../types/book';
 
 type State = {
   error: string;
-  status: "pending" | "loading" | "failure" | "success";
+  status: 'pending' | 'loading' | 'failure' | 'success';
   book: Book | undefined;
 };
 
 const initialState: State = {
-  error: "",
-  status: "pending",
+  error: '',
+  status: 'pending',
   book: undefined,
 };
 
 type Action =
-  | { type: "FETCH_LOADING" }
-  | { type: "FETCH_FAILURE"; payload: string }
-  | { type: "FETCH_SUCCESS"; payload: Book };
+  | { type: 'FETCH_LOADING' }
+  | { type: 'FETCH_FAILURE'; payload: string }
+  | { type: 'FETCH_SUCCESS'; payload: Book };
 
 function reducer(state: State, action: Action): State {
   switch (action.type) {
-    case "FETCH_LOADING":
-      return { ...state, error: "", status: "loading" };
-    case "FETCH_FAILURE":
+    case 'FETCH_LOADING':
+      return { ...state, error: '', status: 'loading' };
+    case 'FETCH_FAILURE':
       return {
         ...state,
         ...initialState,
         error: action.payload,
-        status: "failure",
+        status: 'failure',
       };
-    case "FETCH_SUCCESS":
+    case 'FETCH_SUCCESS':
       return {
         ...state,
-        status: "success",
+        status: 'success',
         book: action.payload,
       };
     default:
@@ -48,23 +48,23 @@ export default function useNewestBook(): UseNewestBook {
 
   React.useEffect(() => {
     async function getBooks() {
-      dispatch({ type: "FETCH_LOADING" });
+      dispatch({ type: 'FETCH_LOADING' });
 
       try {
         const books = await booksApi.list({
           limit: 1,
-          runDate: "",
-          sort: "desc",
+          runDate: '',
+          sort: 'desc',
         });
         const book = books[0];
 
         if (!book) {
-          throw new Error("No book found");
+          throw new Error('No book found');
         }
 
-        dispatch({ type: "FETCH_SUCCESS", payload: book });
+        dispatch({ type: 'FETCH_SUCCESS', payload: book });
       } catch (error) {
-        dispatch({ type: "FETCH_FAILURE", payload: error.message });
+        dispatch({ type: 'FETCH_FAILURE', payload: error.message });
       }
     }
 

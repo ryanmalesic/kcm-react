@@ -1,39 +1,39 @@
-import React from "react";
-import itemsApi from "../api/items";
-import { Item } from "../types/item";
-import { fromIdentifierToSvic, fromIdentifierToUpc } from "../utils/item";
+import React from 'react';
+import itemsApi from '../api/items';
+import { Item } from '../types/item';
+import { fromIdentifierToSvic, fromIdentifierToUpc } from '../utils/item';
 
 type State = {
   error: string;
-  status: "pending" | "loading" | "failure" | "success";
+  status: 'pending' | 'loading' | 'failure' | 'success';
   items: Item[];
 };
 
 const initialState: State = {
-  error: "",
-  status: "pending",
+  error: '',
+  status: 'pending',
   items: [],
 };
 
 type Action =
-  | { type: "ADD_ITEM_LOADING" }
-  | { type: "ADD_ITEM_FAILURE"; payload: string }
-  | { type: "ADD_ITEM_SUCCESS"; payload: Item };
+  | { type: 'ADD_ITEM_LOADING' }
+  | { type: 'ADD_ITEM_FAILURE'; payload: string }
+  | { type: 'ADD_ITEM_SUCCESS'; payload: Item };
 
 function reducer(state: State, action: Action): State {
   switch (action.type) {
-    case "ADD_ITEM_LOADING":
-      return { ...state, error: "", status: "loading" };
-    case "ADD_ITEM_FAILURE":
+    case 'ADD_ITEM_LOADING':
+      return { ...state, error: '', status: 'loading' };
+    case 'ADD_ITEM_FAILURE':
       return {
         ...state,
         error: action.payload,
-        status: "failure",
+        status: 'failure',
       };
-    case "ADD_ITEM_SUCCESS":
+    case 'ADD_ITEM_SUCCESS':
       return {
         ...state,
-        status: "success",
+        status: 'success',
         items: state.items.some((item) => item.id === action.payload.id)
           ? [...state.items]
           : [...state.items, action.payload],
@@ -57,14 +57,14 @@ export default function useItems(): UseItems {
         return;
       }
 
-      dispatch({ type: "ADD_ITEM_LOADING" });
+      dispatch({ type: 'ADD_ITEM_LOADING' });
 
       if (
         cache.current[fromIdentifierToSvic(identifier)] ||
         cache.current[fromIdentifierToUpc(identifier)]
       ) {
         dispatch({
-          type: "ADD_ITEM_SUCCESS",
+          type: 'ADD_ITEM_SUCCESS',
           payload:
             cache.current[fromIdentifierToSvic(identifier)] ??
             cache.current[fromIdentifierToUpc(identifier)],
@@ -83,7 +83,7 @@ export default function useItems(): UseItems {
           upc: fromIdentifierToUpc(identifier),
         }),
       ]).catch((errors) => {
-        dispatch({ type: "ADD_ITEM_FAILURE", payload: errors[0] });
+        dispatch({ type: 'ADD_ITEM_FAILURE', payload: errors[0] });
         return undefined;
       });
 
@@ -93,7 +93,7 @@ export default function useItems(): UseItems {
 
       cache.current[item.itemCode] = item;
       cache.current[item.upc] = item;
-      dispatch({ type: "ADD_ITEM_SUCCESS", payload: item });
+      dispatch({ type: 'ADD_ITEM_SUCCESS', payload: item });
     },
     []
   );

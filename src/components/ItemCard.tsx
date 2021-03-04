@@ -18,7 +18,7 @@ const ItemCard: React.FC<ItemCardProps> = (props: ItemCardProps) => {
       <CardHeader title={title} subtitle="" />
       <CardBody>
         {!item ? (
-          <div className="flex items-center justify-center h-32">
+          <div className="flex items-center justify-center h-32 ">
             <span className="text-sm text-gray-900">No Item</span>
           </div>
         ) : (
@@ -53,7 +53,9 @@ const ItemCard: React.FC<ItemCardProps> = (props: ItemCardProps) => {
             </div>
             <div className="col-span-1">
               <h3 className="text-sm text-gray-600">Subclass Description</h3>
-              <span className="text-sm text-gray-900">{item.subClassDescription}</span>
+              <span className="text-sm text-gray-900">
+                {item.subClassDescription}
+              </span>
             </div>
           </div>
         )}

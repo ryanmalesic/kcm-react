@@ -1,9 +1,9 @@
-import { Book } from "../types/book";
+import { Book } from '../types/book';
 
 export type GetParams = {
   limit: number;
   runDate: string;
-  sort: "asc" | "desc";
+  sort: 'asc' | 'desc';
 };
 
 const createGetUrl = (params: GetParams) => {
@@ -38,7 +38,7 @@ async function upload(files: File[]): Promise<void> {
 
   await Promise.all(
     jsons.map(({ url }, index) =>
-      fetch(url, { method: "PUT", body: files[index] })
+      fetch(url, { method: 'PUT', body: files[index] })
     )
   );
 }

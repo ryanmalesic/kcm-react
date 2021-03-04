@@ -1,11 +1,11 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Navbar from "./components/Navbar";
-import Upload from "./pages/Upload";
-import CategoryViewDemo from "./pages/CategoryViewDemo";
-import MissingItems from "./pages/MissingItems";
-import CategoryCreate from "./pages/CategoryCreate";
+import Navbar from './components/Navbar';
+import Upload from './pages/Upload';
+import CategoryViewDemo from './pages/CategoryViewDemo';
+import MissingItems from './pages/MissingItems';
+import CategoryCreate from './pages/CategoryCreate';
 
 const App: React.FC = () => (
   <BrowserRouter>

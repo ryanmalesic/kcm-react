@@ -10,7 +10,9 @@ interface ScanItemCardProps {
   onAddItem(identifier: string): Promise<void>;
 }
 
-const ScanItemCard: React.FC<ScanItemCardProps> = (props: ScanItemCardProps) => {
+const ScanItemCard: React.FC<ScanItemCardProps> = (
+  props: ScanItemCardProps
+) => {
   const { count, status, onAddItem } = props;
 
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -26,7 +28,9 @@ const ScanItemCard: React.FC<ScanItemCardProps> = (props: ScanItemCardProps) => 
     inputRef.current?.focus();
   };
 
-  const handleIdentifierChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+  const handleIdentifierChange: React.ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
     setIdentifier(event.target.value);
   };
 
@@ -40,11 +44,17 @@ const ScanItemCard: React.FC<ScanItemCardProps> = (props: ScanItemCardProps) => 
 
   return (
     <Card>
-      <CardHeader title="Scan Items" subtitle="Scan items to add them to the set" />
+      <CardHeader
+        title="Scan Items"
+        subtitle="Scan items to add them to the set"
+      />
       <CardBody>
         <div className="grid grid-cols-2 gap-8">
           <div className="col-span-1">
-            <label className="block text-sm text-gray-600" htmlFor="itemIdentifier">
+            <label
+              className="block text-sm text-gray-600"
+              htmlFor="itemIdentifier"
+            >
               Item Identifier
               <div className="relative max-w-min">
                 <input
@@ -71,13 +81,15 @@ const ScanItemCard: React.FC<ScanItemCardProps> = (props: ScanItemCardProps) => 
             </label>
 
             {status === 'failure' && (
-              <span className="block text-sm text-red-600">Error adding item</span>
+              <span className="block text-sm text-red-600">
+                Error adding item
+              </span>
             )}
           </div>
 
           <div className="col-span-1">
             <h3 className="text-sm text-gray-600">Items Added</h3>
-            <span className="block text-sm text-gray-900 pt-2">
+            <span className="block pt-2 text-sm text-gray-900">
               {count} Item
               {count !== 1 && 's'}
             </span>

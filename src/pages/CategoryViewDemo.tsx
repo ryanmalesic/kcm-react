@@ -8,23 +8,28 @@ const CategoryViewDemo: React.FC = () => (
       title="Canned Dog Food"
       subtitle={
         <>
-          Created by <span className="font-medium text-gray-900 ">Tom Malesic</span> on February 18,
-          2021
+          Created by{' '}
+          <span className="font-medium text-gray-900 ">Tom Malesic</span> on
+          February 18, 2021
         </>
       }
     />
-    <div className="grid grid-cols-12 gap-6">
+    <div className="grid-cols-12 grid gap-6">
       <div className="col-span-8 xl:col-span-9">
         <div className="bg-white border border-gray-200 rounded-md shadow-sm">
           <div className="px-6 py-4 border-b border-gray-200">
-            <h3 className="font-semibold text-gray-900">Category Information</h3>
+            <h3 className="font-semibold text-gray-900">
+              Category Information
+            </h3>
             <span className="text-sm text-gray-600">Details and files.</span>
           </div>
           <div className="p-6">
             <div className="grid grid-cols-2 gap-8">
               <div className="col-span-1">
                 <h3 className="text-sm text-gray-600">Store</h3>
-                <span className="text-sm text-gray-900">13 - Newberry Commons</span>
+                <span className="text-sm text-gray-900">
+                  13 - Newberry Commons
+                </span>
               </div>
               <div className="col-span-1">
                 <h3 className="text-sm text-gray-600">Aisle</h3>
@@ -52,7 +57,9 @@ const CategoryViewDemo: React.FC = () => (
               </div>
               <div className="col-span-1">
                 <h3 className="text-sm text-gray-600">Shelf Spacing (in)</h3>
-                <span className="text-sm text-gray-900">8, 8, 8, 8, 10, 12</span>
+                <span className="text-sm text-gray-900">
+                  8, 8, 8, 8, 10, 12
+                </span>
               </div>
               <div className="col-span-1">
                 <h3 className="text-sm text-gray-600">Average Profit</h3>
@@ -75,14 +82,16 @@ const CategoryViewDemo: React.FC = () => (
               <div className="col-span-2">
                 <h3 className="text-sm text-gray-600">Notes</h3>
                 <span className="text-sm text-gray-900">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                  incididunt ut labore et dolore magna aliqua. At lectus urna duis convallis
-                  convallis tellus id. Arcu bibendum at varius vel pharetra vel. Orci eu lobortis
-                  elementum nibh tellus molestie nunc non. Gravida dictum fusce ut placerat orci
-                  nulla pellentesque dignissim. Sit amet consectetur adipiscing elit ut aliquam.
-                  Scelerisque viverra mauris in aliquam sem fringilla ut. Pulvinar mattis nunc sed
-                  blandit libero volutpat sed cras. Nec ultrices dui sapien eget mi. Enim praesent
-                  elementum facilisis leo vel fringilla est.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  At lectus urna duis convallis convallis tellus id. Arcu
+                  bibendum at varius vel pharetra vel. Orci eu lobortis
+                  elementum nibh tellus molestie nunc non. Gravida dictum fusce
+                  ut placerat orci nulla pellentesque dignissim. Sit amet
+                  consectetur adipiscing elit ut aliquam. Scelerisque viverra
+                  mauris in aliquam sem fringilla ut. Pulvinar mattis nunc sed
+                  blandit libero volutpat sed cras. Nec ultrices dui sapien eget
+                  mi. Enim praesent elementum facilisis leo vel fringilla est.
                 </span>
               </div>
               <div className="col-span-2">
@@ -129,7 +138,9 @@ const CategoryViewDemo: React.FC = () => (
                           />
                         </svg>
                       </div>
-                      <h4 className="text-sm text-gray-900">category_items.csv</h4>
+                      <h4 className="text-sm text-gray-900">
+                        category_items.csv
+                      </h4>
                     </div>
                     <button
                       className="px-2 py-1 text-sm text-karns-blue focus:outline-none"
@@ -154,7 +165,9 @@ const CategoryViewDemo: React.FC = () => (
                           />
                         </svg>
                       </div>
-                      <h4 className="text-sm text-gray-900">missing_items.csv</h4>
+                      <h4 className="text-sm text-gray-900">
+                        missing_items.csv
+                      </h4>
                     </div>
                     <button
                       className="px-2 py-1 text-sm text-karns-blue focus:outline-none"
@@ -194,7 +207,9 @@ const CategoryViewDemo: React.FC = () => (
                   </div>
                   <span className="text-sm text-gray-600">
                     Created by{' '}
-                    <span className="text-sm font-medium text-gray-900">Tom Malesic</span>
+                    <span className="text-sm font-medium text-gray-900">
+                      Tom Malesic
+                    </span>
                   </span>
                 </div>
                 <span className="text-sm text-gray-600">Feb 18</span>
@@ -221,7 +236,10 @@ const CategoryViewDemo: React.FC = () => (
                     </svg>
                   </div>
                   <span className="text-sm text-gray-600">
-                    Modified by <span className="text-sm font-medium text-gray-900">Lee Huala</span>
+                    Modified by{' '}
+                    <span className="text-sm font-medium text-gray-900">
+                      Lee Huala
+                    </span>
                   </span>
                 </div>
                 <span className="text-sm text-gray-600">Feb 21</span>
@@ -247,7 +265,9 @@ const CategoryViewDemo: React.FC = () => (
                   </div>
                   <span className="text-sm text-gray-600">
                     25 items added by{' '}
-                    <span className="text-sm font-medium text-gray-900">Tom Malesic</span>
+                    <span className="text-sm font-medium text-gray-900">
+                      Tom Malesic
+                    </span>
                   </span>
                 </div>
                 <span className="text-sm text-gray-600">Feb 21</span>

@@ -1,16 +1,17 @@
-import React from "react";
-import CategoryInfoFormCard from "../components/CategoryInfoFormCard";
-import PageTitle from "../components/PageTitle";
-import { CategoryDetails } from "../types/category";
+import React from 'react';
+import CategoryInfoFormCard from '../components/CategoryInfoFormCard';
+import PageTitle from '../components/PageTitle';
+import ScanItemCard from '../components/ScanItemCard';
+import { CategoryDetails } from '../types/category';
 
 const CategoryCreate: React.FC = () => {
   const [categoryDetails, setCategoryDetails] = React.useState<CategoryDetails>(
     {
-      name: "",
-      store: "",
-      aisle: "",
-      length: "",
-      shelfDimensions: "",
+      name: '',
+      store: '',
+      aisle: '',
+      length: '',
+      shelfDimensions: '',
     }
   );
 
@@ -28,7 +29,15 @@ const CategoryCreate: React.FC = () => {
       />
 
       <main className="grid grid-cols-4 gap-6">
-        <div className="col-span-4 space-y-6 lg:col-span-3" />
+        <div className="col-span-4 space-y-6 lg:col-span-3">
+          <ScanItemCard
+            count={1}
+            status="success"
+            onAddItem={async () => {
+              console.log('LMAO');
+            }}
+          />
+        </div>
 
         <div className="col-span-4 lg:col-span-1">
           <CategoryInfoFormCard

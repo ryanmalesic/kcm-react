@@ -1,5 +1,5 @@
-import React from "react";
-import papa from "papaparse";
+import React from 'react';
+import papa from 'papaparse';
 
 type UseCsv = {
   download: (
@@ -16,12 +16,12 @@ export default function useCsv(): UseCsv {
         columns: headers,
       });
 
-      const element = document.createElement("a");
+      const element = document.createElement('a');
       element.setAttribute(
-        "href",
+        'href',
         `data:text/csv;charset=utf-8, ${encodeURIComponent(csvString)}`
       );
-      element.setAttribute("download", name);
+      element.setAttribute('download', name);
       document.body.appendChild(element);
       element.click();
       document.body.removeChild(element);

@@ -1,4 +1,4 @@
-import { ClassDescItems, Item, SubClassDescriptionItems } from "../types/item";
+import { ClassDescItems, Item, SubClassDescriptionItems } from '../types/item';
 
 export function fromIdentifierToSvic(identifier: string): string {
   return identifier.slice(0, 7);
@@ -35,24 +35,24 @@ export function toSubClassDescriptionItems(
 
 export const toFileSafeName = (name: string): string =>
   name
-    .replaceAll(" ", "-")
-    .replaceAll("/", "-")
-    .replaceAll("&", "and")
-    .replaceAll("\\", "-")
+    .replaceAll(' ', '-')
+    .replaceAll('/', '-')
+    .replaceAll('&', 'and')
+    .replaceAll('\\', '-')
     .toLowerCase();
 
 export const downloadHeaders: (keyof Item)[] = [
-  "itemCode",
-  "upc",
-  "restrictPfInd",
-  "brand",
-  "description",
-  "size",
-  "pack",
-  "cost",
-  "unitCost",
-  "baseCripSrp",
-  "baseCripPct",
-  "classDesc",
-  "subClassDescription",
+  'itemCode',
+  'upc',
+  'restrictPfInd',
+  'brand',
+  'description',
+  'size',
+  'pack',
+  'cost',
+  'unitCost',
+  'baseCripSrp',
+  'baseCripPct',
+  'classDesc',
+  'subClassDescription',
 ];
